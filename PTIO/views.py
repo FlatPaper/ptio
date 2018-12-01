@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http.response import Http404
 from PTIO.models.profile import ParentProfile, TeacherProfile, StudentProfile
-from PTIO.models.meeting import TeacherClass, MeetingTimeslot
+from PTIO.models.meeting import TeacherClass, MeetingTimeslot, UsedTimeSlot
 
 
 # Create your views here.
@@ -14,6 +14,7 @@ def index(request):
 
     return render(request, 'PTIO/index.html', {'students': students, 'parents': parents, 'teachers': teachers,
                                                'classes': classes})
+
 
 def parent(request, parent_id):
     try:
@@ -45,6 +46,7 @@ def parent(request, parent_id):
     except ParentProfile.DoesNotExist:
         raise Http404('Invalid parent id!')
 
+
 def teacher(request, teacher_id):
     try:
         teacher_obj = TeacherProfile.objects.get(pk=teacher_id)
@@ -58,6 +60,21 @@ def teacher(request, teacher_id):
                                                      'classes': classes, 'slots': slots})
     except TeacherProfile.DoesNotExist:
         raise Http404('Invalid teacher id!')
+
+
+def register_slot(request, parent_id, slot_id):
+    meeting = MeetingTimeslot.objects.get(pk=slot_id)
+    parent = ParentProfile.objects.get(pk=parent_id)
+    already_used = UsedTimeSlot.objects.filter(parent_slot__pk=slot_id)
+
+    return render(request, 'PTIO/register_slot.html', {'slot_obj': meeting, 'parent_obj': parent,
+                                                       'used': already_used})
+
+
+def register_slot_post(request):
+    parent = ParentProfile.objects.get(pk=request['parentid'])
+    slot = MeetingTimeslot.objects.get(pk=request['slotid'])
+
 
 def student(request):
     return render(request, 'PTIO/student.html', {})

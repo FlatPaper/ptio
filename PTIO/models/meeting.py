@@ -22,3 +22,12 @@ class MeetingTimeslot(models.Model):
 
     def __str__(self):
         return 'Meeting by %s from %s to %s' % (self.teacher_class, self.start_time, self.end_time)
+
+
+class UsedTimeSlot(models.Model):
+    parent_slot = models.ForeignKey(MeetingTimeslot, on_delete=models.CASCADE)
+    start_time = models.DateTimeField(verbose_name='Start Time')
+    end_time = models.DateTimeField(verbose_name='End Time')
+
+    def __str__(self):
+        return 'Time Slot from %s to %s for parent slot \"%s\"' % (self.start_time, self.end_time, self.parent_slot)

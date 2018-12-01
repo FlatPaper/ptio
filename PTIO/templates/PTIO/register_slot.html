@@ -1,0 +1,25 @@
+{% if err %}
+<h1>{{err}}</h1>
+{% else %}
+
+<h1>Slot Registration</h1>
+<h2>Basic Info</h2>
+<ul>
+    <li>Slot is from {{slot_obj.start_time}} to {{slot_obj.end_time}}</li>
+    <li>Slot is for class {{slot_obj.teacher_class}}</li>
+</ul>
+
+<h3>Slots Already Taken</h3>
+<ul>
+    d
+</ul>
+
+<form action="/slot/register/complete_registration" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="parentid" value="{{parent_obj.id}}">
+    <input type="hidden" name="slotid" value="{{slot_obj.id}}">
+
+    <input type="submit" value="Register for Slot">
+</form>
+
+{% endif %}

@@ -15,3 +15,9 @@ class TeacherClassAdmin(admin.ModelAdmin):
     list_display_links = ('teacher',)
     search_fields = ('teacher__user_name', 'subject')
     list_per_page = 25
+
+
+class UsedTimeSlotAdmin(admin.ModelAdmin):
+    list_display = ('parent_slot', 'start_time', 'end_time')
+    list_display_links = ('parent_slot',)
+    list_per_page = 25
