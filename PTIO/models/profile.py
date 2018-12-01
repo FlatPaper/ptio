@@ -8,7 +8,7 @@ class TeacherProfile(models.Model):
     first_name = models.CharField(max_length=200, blank=True, null=True,
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
     last_name = models.CharField(max_length=200, blank=True, null=True,
-        validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
+        validators=[RegexValidator('^[a-zA-Z]+$', _('Last name must be made of characters only.'))])
 
     def __str__(self):
         if self.first_name and self.last_name:
@@ -21,9 +21,9 @@ class ParentProfile(models.Model):
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
     second_name_parent_1 = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('parent 1 second name'),
         validators=[RegexValidator('^[a-zA-Z]+$', _('Second name must be made of characters only.'))])
-    first_name_parent_2 = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('parent 1 first name'),
+    first_name_parent_2 = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('parent 2 first name'),
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
-    second_name_parent_2 = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('parent 1 second name'),
+    second_name_parent_2 = models.CharField(max_length=200, blank=True, null=True, verbose_name=_('parent 2 second name'),
         validators=[RegexValidator('^[a-zA-Z]+$', _('Second name must be made of characters only.'))])
 
     def __str__(self):
