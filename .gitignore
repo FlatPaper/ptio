@@ -1,0 +1,7 @@
+.git
+venv/
+*.sqlite3
+*.py[co]
+__pycache__
+.DS_Store
+.idea/
