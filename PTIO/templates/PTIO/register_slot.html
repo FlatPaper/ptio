@@ -16,7 +16,7 @@
     {% endfor %}
 </ul>
 
-<form action="/slot/register/complete_registration" method="post">
+<form action="/ptio/slot/register/complete_registration" method="post">
     {% csrf_token %}
     <input type="hidden" name="parentid" value="{{parent_obj.id}}">
     <input type="hidden" name="slotid" value="{{slot_obj.id}}">
