@@ -5,3 +5,6 @@ venv/
 __pycache__
 .DS_Store
 .idea/
+PTIO/migrations/
+*.pyc
+*.pyo
