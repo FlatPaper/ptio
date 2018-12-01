@@ -17,7 +17,7 @@ class TeacherClass(models.Model):
     class Meta:
         verbose_name = _('teacher class')
         verbose_name_plural = _('teacher classes')
-        
+
 
 class MeetingTimeslot(models.Model):
     teacher_class = models.ForeignKey(TeacherClass, on_delete=models.CASCADE)

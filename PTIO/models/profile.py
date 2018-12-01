@@ -37,7 +37,7 @@ class StudentProfile(models.Model):
     first_name = models.CharField(max_length=200, blank=True, null=True,
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
     last_name = models.CharField(max_length=200, blank=True, null=True,
-        validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
+        validators=[RegexValidator('^[a-zA-Z]+$', _('Last name must be made of characters only.'))])
 
     def is_accessible_by(self, user):
         if user.has_perm('PTIO.edit_own_children'):
