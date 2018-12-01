@@ -1,10 +1,8 @@
 from django.contrib import admin
 
-from PTIO.admin.meeting import MeetingTimeslotAdmin, TeacherClassAdmin
-from PTIO.models import MeetingTimeslot, TeacherClass
-
 from PTIO.admin.profile import StudentProfileAdmin, ParentProfileAdmin, TeacherProfileAdmin
-from PTIO.models import StudentProfile, ParentProfile, TeacherProfile
+from PTIO.admin.meeting import MeetingTimeslotAdmin, TeacherClassAdmin
+from PTIO.models import StudentProfile, ParentProfile, TeacherProfile, MeetingTimeslot, TeacherClass
 
 admin.site.register(MeetingTimeslot, MeetingTimeslotAdmin)
 admin.site.register(TeacherClass, TeacherClassAdmin)
