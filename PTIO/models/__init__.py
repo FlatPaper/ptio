@@ -1,1 +1,1 @@
-from PTIO.models.profile import StudentProfile, ParentProfile
+from PTIO.models.profile import StudentProfile, ParentProfile, TeacherProfile
