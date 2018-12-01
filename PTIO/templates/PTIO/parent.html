@@ -1,0 +1,13 @@
+<h1>Parent Interface</h1>
+
+<p>Parent 1: {{parent_obj.second_name_parent_1}}, {{parent_obj.first_name_parent_1}}</p>
+<p>Parent 2: {{parent_obj.second_name_parent_2}}, {{parent_obj.first_name_parent_2}}</p>
+
+<h2>Your Children</h2>
+<ol>
+    {% for entry in children.all %}
+        <li>{{entry.last_name}}, {{entry.first_name}}</li>
+    {% endfor %}
+</ol>
+
+<h2>Available Meetings</h2>

@@ -1,0 +1,30 @@
+<h1>Welcome to the PT::IO Home Page</h1>
+
+<h2>Student List</h2>
+<ul>
+{% for student in students %}
+    <li>{{student.last_name}}, {{student.first_name}}</li>
+{% endfor %}
+</ul>
+
+<h2>Parent List</h2>
+<ul>
+{% for parent in parents %}
+    <li><a href="/ptio/parent/{{parent.id}}">Parents {{parent.second_name_parent_1}}, {{parent.first_name_parent_1}} and
+    {{parent.second_name_parent_2}}, {{parent.first_name_parent_2}}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Teacher List</h2>
+<ul>
+{% for teacher in teachers %}
+    <li><a href="/ptio/teacher/{{teacher.id}}">Teacher {{teacher.last_name}}, {{teacher.first_name}}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Class List</h2>
+<ul>
+{% for class in classes %}
+    <li>{{class}}</li>
+{% endfor %}
+</ul>
