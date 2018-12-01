@@ -4,6 +4,7 @@ from django.http.response import Http404, HttpResponseRedirect
 from PTIO.models.profile import ParentProfile, TeacherProfile, StudentProfile
 from PTIO.models.meeting import TeacherClass, MeetingTimeslot, UsedTimeSlot
 import datetime
+import pytz
 
 
 # Create your views here.
@@ -77,7 +78,7 @@ def str_to_datetime(date_string):
     spl = date_string.split('T')
     y, m, d = map(int, spl[0].split('-'))
     h, m = map(int, spl[1].split(':'))
-    return datetime.datetime(y, m, d, h, m, 0)
+    return datetime.datetime(y, m, d, h, m, 0, tzinfo=pytz.UTC)
 
 
 def register_slot_post(request):
