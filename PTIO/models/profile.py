@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
+from django.utils.functional import cached_property
 
 class TeacherProfile(models.Model):
     user_name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
@@ -47,6 +48,13 @@ class StudentProfile(models.Model):
         if self.first_name and self.last_name:
             return str(self.first_name + " " + self.last_name)
         return self.user.user_name
+
+    def is_editor(self, profile):
+        return (self.parent_account_host.filter(id=ParentProfile.id)).exists()
+
+    @cached_property
+    def parent_id(self):
+        return self.parent_account_host.values_list('id', flat=True)
 
     class Meta:
         permissions = (
