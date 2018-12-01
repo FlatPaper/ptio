@@ -11,13 +11,18 @@
 
 <h3>Slots Already Taken</h3>
 <ul>
-    d
+    {% for used_slot in used.all %}
+        <li>Slot from {{used_slot.start_time}} to {{used_slot.end_time}}</li>
+    {% endfor %}
 </ul>
 
 <form action="/slot/register/complete_registration" method="post">
     {% csrf_token %}
     <input type="hidden" name="parentid" value="{{parent_obj.id}}">
     <input type="hidden" name="slotid" value="{{slot_obj.id}}">
+
+    <span>Begin Time: </span><input type="datetime-local" name="start-time"><br>
+    <span>End Time: </span><input type="datetime-local" name="end-time"><br><br>
 
     <input type="submit" value="Register for Slot">
 </form>
