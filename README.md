@@ -27,6 +27,7 @@ You will need [django](https://www.djangoproject.com/). That's it!
 **Beginner-Friendly Installation**
 
 1. Open up Command Prompt (or Bash)
+Refrence https://www.djangoproject.com/download/ 
 2. Run the command `py -m pip install django`
 4. Go to your directory of choice (for storing the program) and run `Git Bash` in that directory
 5. In Git Bash, run the command `git clone https://github.com/jsumabat/ptio.git`
