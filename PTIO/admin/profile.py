@@ -10,7 +10,7 @@ class StudentProfileAdmin(admin.ModelAdmin):
         queryset = StudentProfile.objects.all()
         if request.user.has_perm('judge.edit_all_children'):
             return queryset
-        
+
         access = Q()
         if request.user.has_perm('PTIO.edit_own_children'):
             access |= Q(parent_account_host__id=request.user.id)
