@@ -32,7 +32,7 @@ class ParentProfile(models.Model):
         return self.user.user_name
 
 class StudentProfile(models.Model):
-    parent_account_host = models.ManyToManyField(ParentProfile, verbose_name=_('parents'), blank=True)
+    parent_account_host = models.ForeignKey(ParentProfile, on_delete=models.PROTECT, verbose_name=_('parents'))
     first_name = models.CharField(max_length=200, blank=True, null=True,
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
     last_name = models.CharField(max_length=200, blank=True, null=True,
