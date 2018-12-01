@@ -15,4 +15,12 @@
 
 <h2>Current Meetings</h2>
 
+<ol>
+    {% for slot in slots.all %}
+        <li>Time Slot from {{slot.start_time}} to {{slot.end_time}}</li>
+    {% endfor %}
+</ol>
+
 <h2>Host Meeting</h2>
+
+<a href="/admin/PTIO/meetingtimeslot/add/">Create a Time Slot through the admin panel</a>

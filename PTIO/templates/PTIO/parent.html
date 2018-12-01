@@ -5,9 +5,16 @@
 
 <h2>Your Children</h2>
 <ol>
-    {% for entry in children.all %}
+    {% for entry in children %}
         <li>{{entry.last_name}}, {{entry.first_name}}</li>
     {% endfor %}
 </ol>
 
 <h2>Available Meetings</h2>
+<ol>
+    {% for curr_class, meeting in meetings %}
+        <li>Slot from {{meeting.start_time}} to {{meeting.end_time}} for {{curr_class}}<br>
+            <a href="/ptio/slot/register/{{parent_obj.id}}/{{meeting.id}}/">Sign Up</a>
+        </li>
+    {% endfor %}
+</ol>
