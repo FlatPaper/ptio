@@ -1,11 +1,11 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from .profile import ParentProfile, StudentProfile
+from .profile import ParentProfile, StudentProfile, TeacherProfile
 
 SUBJECT_VALIDATORS = [RegexValidator(regex='^[a-zA-Z ]+$', message='Subject can only contain letters and spaces')]
 
 class MeetingTimeslot(models.Model):
-    teacher = models.ForeignKey(ParentProfile, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE)
     subject = models.CharField(max_length=200, validators=SUBJECT_VALIDATORS)
     start_time = models.DateTimeField(verbose_name='Start Time')
     end_time = models.DateTimeField(verbose_name='End Time', validators=[])
