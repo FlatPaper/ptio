@@ -15,7 +15,6 @@ def index(request):
     return render(request, 'PTIO/index.html', {'students': students, 'parents': parents, 'teachers': teachers,
                                                'classes': classes})
 
-
 def parent(request, parent_id):
     try:
         parent_obj = ParentProfile.objects.get(pk=parent_id)
@@ -26,7 +25,6 @@ def parent(request, parent_id):
                                                     'children': children, 'meetings': meetings})
     except ParentProfile.DoesNotExist:
         raise Http404('Invalid parent id!')
-
 
 def teacher(request, teacher_id):
     try:
@@ -39,7 +37,6 @@ def teacher(request, teacher_id):
                                                      'classes': classes})
     except TeacherProfile.DoesNotExist:
         raise Http404('Invalid teacher id!')
-
 
 def student(request):
     return render(request, 'PTIO/student.html', {})
