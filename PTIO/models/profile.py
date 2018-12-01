@@ -9,6 +9,8 @@ class Profile(models.Model):
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
     last_name = models.CharField(max_length=200, blank=True, null=True,
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
+    display_rank = models.CharField(max_length=10, default='user', verbose_name=_('display rank'),
+        choices=(('user', 'Student'), ('teacher', 'Teacher'), ('admin', 'Admin')))
 
     def __str__(self):
         if self.user_name:
