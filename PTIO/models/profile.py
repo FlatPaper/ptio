@@ -40,7 +40,7 @@ class StudentProfile(models.Model):
         validators=[RegexValidator('^[a-zA-Z]+$', _('First name must be made of characters only.'))])
 
     def is_accessible_by(self, user):
-        if user.has_perm('PTIO.edit_own_children') or user.has_perm('PTIO.edit_all_children'):
+        if user.has_perm('PTIO.edit_own_children'):
             return True
         return False
 
