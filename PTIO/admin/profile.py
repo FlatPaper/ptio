@@ -1,8 +1,7 @@
 from django.contrib import admin
-from django.forms import ModelForm
-from django.utils.translation import ugettext, ugettext_lazy as _
 
-from PTIO.models import Profile
+class StudentProfileAdmin(admin.ModelAdmin):
+    fields = ('first_name', 'last_name')
 
-class ProfileAdmin(admin.ModelAdmin):
-    fields = ('user_name', 'first_name', 'last_name')
+class ParentProfileAdmin(admin.ModelAdmin):
+    fields = ('user_name', 'first_name_parent_1', 'second_name_parent_1', 'first_name_parent_2', 'second_name_parent_2')
