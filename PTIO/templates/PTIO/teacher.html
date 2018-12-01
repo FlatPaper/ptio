@@ -1,0 +1,18 @@
+<h1>Teacher Interface for {{teacher_obj.last_name}}, {{teacher_obj.first_name}}</h1>
+
+<h2>Your Classes</h2>
+<ol>
+    {% for class_obj, students in classes %}
+        <li>{{class_obj.subject}}</li>
+
+        <ul>
+            {% for student in students %}
+                <li>{{student.last_name}}, {{student.first_name}}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ol>
+
+<h2>Current Meetings</h2>
+
+<h2>Host Meeting</h2>
